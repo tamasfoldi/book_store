@@ -25,7 +25,7 @@ export class SearchSuccessAction implements Action {
 }
 
 export class SearchFailAction implements Action {
-  readonly type = SEARCH_SUCCESS;
+  readonly type = SEARCH_FAIL;
 
   constructor(public payload: ApiError) { }
 }
@@ -43,7 +43,7 @@ export class LoadSuccessAction implements Action {
 }
 
 export class LoadFailAction implements Action {
-  readonly type = LOAD_SUCCESS;
+  readonly type = LOAD_FAIL;
 
   constructor(public payload: ApiError) { }
 }
@@ -54,7 +54,7 @@ export class SelectAction implements Action {
   constructor(public payload: string) { }
 }
 
-export type Action = SearchAction
+export type Actions = SearchAction
   | SearchSuccessAction
   | SearchFailAction
 

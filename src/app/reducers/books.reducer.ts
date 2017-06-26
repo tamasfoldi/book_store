@@ -35,10 +35,9 @@ export function reducer(state = initialState, action: books.Actions): State {
       const bookIds = action.payload.map(book => book.id);
 
       const newIds = _.difference(bookIds, state.ids);
-      const newBooks = newIds
-        .map(id => action.payload[id])
-        .reduce((books: { [id: string]: Book }, book: Book) =>
-          _.assign(books, { [book.id]: book }));
+      const newBooks = action.payload
+        .filter(book => !state.books[book.id])
+        .reduce((books: { [id: string]: Book }, book: Book) => _.assign(books, { [book.id]: book }), {});
 
       return { ...state, books: newBooks, ids: newIds };
     }

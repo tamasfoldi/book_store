@@ -66,3 +66,7 @@ export function reducer(state = initialState, action: cart.Actions): State {
 
   }
 }
+
+export const isLoading = (state: State) => state.isLoading;
+export const isAdding = (state: State) => state.isAdding;
+export const getIds = (state: State) => state.ids;

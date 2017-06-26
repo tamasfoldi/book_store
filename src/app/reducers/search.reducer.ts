@@ -42,3 +42,7 @@ export function reducer(state = initialState, action: books.Actions): State {
     }
   }
 }
+
+export const ids = (state: State) => state.ids;
+export const isLoading = (state: State) => state.isLoading;
+export const query = (state: State) => state.query;

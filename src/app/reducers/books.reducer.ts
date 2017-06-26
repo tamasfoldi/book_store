@@ -54,3 +54,7 @@ export function reducer(state = initialState, action: books.Actions | cart.Actio
 
   }
 }
+
+export const getBooks = (state: State) => state.books;
+export const getIds = (state: State) => state.ids;
+export const getSelectedId = (state: State) => state.selectedId;

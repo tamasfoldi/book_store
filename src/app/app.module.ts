@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { RouterModule } from '@angular/router';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
@@ -15,15 +16,23 @@ import { reducer } from './reducers';
 import { BooksEffects } from './effects/books.effects';
 import { CartEffects } from './effects/cart.effects';
 import { schema } from './db';
+import { CartPageComponent } from './containers/cart-page/cart-page.component';
+import { SearchPageComponent } from './containers/search-page/search-page.component';
+import { BookDetailPageComponent } from './containers/book-detail-page/book-detail-page.component';
+import { routes } from './routes';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CartPageComponent,
+    SearchPageComponent,
+    BookDetailPageComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
+    RouterModule.forRoot(routes),
 
     DBModule.provideDB(schema),
 

@@ -20,13 +20,19 @@ import { CartPageComponent } from './containers/cart-page/cart-page.component';
 import { SearchPageComponent } from './containers/search-page/search-page.component';
 import { BookDetailPageComponent } from './containers/book-detail-page/book-detail-page.component';
 import { routes } from './routes';
+import { BookListElementComponent } from './components/book-list-element/book-list-element.component';
+import { SearchComponent } from './components/search/search.component';
+import { BookDetailComponent } from './components/book-detail/book-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CartPageComponent,
     SearchPageComponent,
-    BookDetailPageComponent
+    BookDetailPageComponent,
+    BookListElementComponent,
+    SearchComponent,
+    BookDetailComponent
   ],
   imports: [
     BrowserModule,

@@ -21,8 +21,8 @@ export class BookDetailPageComponent implements OnInit, OnDestroy {
       .takeUntil(this.componentDestroyed$)
       .map(params => params['id'])
       .subscribe(id => {
-        this.store.dispatch(new books.SelectAction(id));
         this.store.dispatch(new books.LoadAction(id));
+        this.store.dispatch(new books.SelectAction(id));
       });
 
     this.book$ = this.store.select(fromRoot.getSelectedBook);

@@ -1,1 +1,4 @@
-
+<app-search>{{query$|async}}</app-search>
+<div *ngFor="let book of (books$ | async)">
+  <app-book-list-element>{{book}}</app-book-list-element>
+</div>

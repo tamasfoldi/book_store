@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Effect, Actions, toPayload } from '@ngrx/effects';
 import { Action } from '@ngrx/store';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs/Rx';
 import { of } from 'rxjs/observable/of';
 
 import { GoogleBooksService } from '../services/google-books.service';

@@ -1,4 +1,5 @@
 import * as books from '../actions/books.actions';
+import * as cart from '../actions/cart.actions';
 import { Action } from '@ngrx/store';
 import { Book } from '../models/book';
 import * as _ from 'lodash';
@@ -15,7 +16,7 @@ export const initialState: State = {
   selectedId: null
 };
 
-export function reducer(state = initialState, action: books.Actions): State {
+export function reducer(state = initialState, action: books.Actions | cart.Actions): State {
   switch (action.type) {
     case books.LOAD_SUCCESS: {
       const book = action.payload;
@@ -31,6 +32,7 @@ export function reducer(state = initialState, action: books.Actions): State {
       };
     }
 
+    case cart.LOAD_SUCCESS:
     case books.SEARCH_SUCCESS: {
       const bookIds = action.payload.map(book => book.id);
 

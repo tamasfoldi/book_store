@@ -17,5 +17,13 @@ export class BooksEffects {
       .map(bks => new books.SearchSuccessAction(bks))
       .catch(err => of(new books.SearchFailAction(err))));
 
+  @Effect()
+  onLoad$: Observable<Action> = this.actions$
+    .ofType(books.LOAD)
+    .map(toPayload)
+    .switchMap(id => this.gbService.getBook(id)
+      .map(book => new books.LoadSuccessAction(book))
+      .catch(err => of(new books.LoadFailAction(err))));
+
   constructor(private actions$: Actions, private gbService: GoogleBooksService) { }
 }

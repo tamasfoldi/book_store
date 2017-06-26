@@ -37,11 +37,11 @@ export function reducer(state = initialState, action: books.Actions | cart.Actio
       const bookIds = action.payload.map(book => book.id);
 
       const newIds = _.difference(bookIds, state.ids);
-      const newBooks = action.payload
-        .filter(book => !state.books[book.id])
-        .reduce((books: { [id: string]: Book }, book: Book) => _.assign(books, { [book.id]: book }), {});
 
-      return { ...state, books: newBooks, ids: newIds };
+      const newBooks = action.payload
+        .reduce((books: { [id: string]: Book }, book: Book) => _.assign(books, { [book.id]: book }), state.books);
+
+      return { ...state, books: newBooks, ids: [...state.ids, ...newIds] };
     }
 
     case books.SELECT: {

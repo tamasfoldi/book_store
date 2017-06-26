@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs/Rx';
+import * as fromRoot from '../../reducers';
+import { Book } from '../../models/book';
 
 @Component({
   selector: 'app-cart-page',
@@ -6,10 +10,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cart-page.component.css']
 })
 export class CartPageComponent implements OnInit {
-
-  constructor() { }
+  isLoading$: Observable<boolean>;
+  books$: Observable<Book[]>;
+  constructor(private store: Store<fromRoot.State>) { }
 
   ngOnInit() {
+    this.books$ = this.store.select(fromRoot.getCartBooks);
+    this.isLoading$ = this.store.select(fromRoot.getCartIsLoading);
   }
 
 }

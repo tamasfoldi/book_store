@@ -13,7 +13,7 @@ describe('SearchReducer', () => {
   });
 
   describe('SEARCH', () => {
-    it('should the query and isLoading to true', () => {
+    it('should set the query and isLoading to true', () => {
       const expectedResult: State = {
         ...initialState,
         query: 'test',

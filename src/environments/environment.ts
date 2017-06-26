@@ -5,5 +5,7 @@
 
 export const environment = {
   production: false,
-  booksBaseUrl: 'https://www.googleapis.com/books/v1/volumes'
+  booksBaseUrl: 'https://www.googleapis.com/books/v1/volumes',
+  schemaName: 'book_store',
+  cartDBName: 'cart'
 };

@@ -30,6 +30,13 @@ export function reducer(state = initialState, action: books.Actions): State {
       };
     }
 
+    case books.SEARCH_FAIL: {
+      return {
+        ...state,
+        isLoading: false
+      };
+    }
+
     default: {
       return state;
     }

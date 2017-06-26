@@ -6,7 +6,7 @@ export interface State {
   query: string;
 };
 
-const initialState: State = {
+export const initialState: State = {
   ids: [],
   isLoading: false,
   query: ''

@@ -22,17 +22,19 @@ import { schema } from './db';
   ],
   imports: [
     BrowserModule,
-    DBModule.provideDB(schema),
-    EffectsModule.run(BooksEffects),
-    EffectsModule.run(CartEffects),
     FormsModule,
     HttpModule,
+
+    DBModule.provideDB(schema),
+
+    EffectsModule.run(BooksEffects),
+    EffectsModule.run(CartEffects),
+
     StoreModule.provideStore(reducer),
     StoreDevtoolsModule.instrumentStore()
   ],
   providers: [
     GoogleBooksService,
-
     {
       provide: BOOKS_API_BASE,
       useValue: environment.booksBaseUrl

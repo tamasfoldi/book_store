@@ -7,22 +7,25 @@ import { storeFreeze } from 'ngrx-store-freeze';
 import { combineReducers } from '@ngrx/store';
 
 import * as fromBooks from './books.reducer';
+import * as fromCart from './cart.reducer';
 
 export interface State {
-  books: fromBooks.State;
+    books: fromBooks.State;
+    cart: fromCart.State;
 }
 
 const reducers = {
-  books: fromBooks.reducer
+    books: fromBooks.reducer,
+    cart: fromCart.reducer
 };
 
 const developmentReducer: ActionReducer<State> = compose(storeFreeze, combineReducers)(reducers);
 const productionReducer: ActionReducer<State> = combineReducers(reducers);
 
 export function reducer(state: any, action: any) {
-  if (environment.production) {
-    return productionReducer(state, action);
-  } else {
-    return developmentReducer(state, action);
-  }
+    if (environment.production) {
+        return productionReducer(state, action);
+    } else {
+        return developmentReducer(state, action);
+    }
 }

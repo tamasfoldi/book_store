@@ -39,7 +39,9 @@ export function reducer(state = initialState, action: books.Actions | cart.Actio
       const newIds = _.difference(bookIds, state.ids);
 
       const newBooks = action.payload
-        .reduce((books: { [id: string]: Book }, book: Book) => _.assign(books, { [book.id]: book }), state.books);
+        .reduce((books: { [id: string]: Book }, book: Book) => {
+          return { ...books, [book.id]: book };
+        }, state.books);
 
       return { ...state, books: newBooks, ids: [...state.ids, ...newIds] };
     }

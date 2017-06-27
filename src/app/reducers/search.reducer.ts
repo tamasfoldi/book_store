@@ -15,6 +15,14 @@ export const initialState: State = {
 export function reducer(state = initialState, action: books.Actions): State {
   switch (action.type) {
     case books.SEARCH: {
+      const query = action.payload;
+      if (query.length === 0) {
+        return {
+          ids: [],
+          isLoading: false,
+          query
+        };
+      }
       return {
         ...state,
         query: action.payload,

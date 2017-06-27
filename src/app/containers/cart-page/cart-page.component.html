@@ -1,3 +1,1 @@
-<div *ngFor="let book of (books$ | async)">
-  <app-book-list>{{book|json}}</app-book-list>
-</div>
+<app-book-list [books]="books$ | async" [inCartIds]="inCartIds$ | async" title="Books in cart"></app-book-list>

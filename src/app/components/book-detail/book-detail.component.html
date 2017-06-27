@@ -1,3 +1,3 @@
-<p>
-  book-detail works!
-</p>
+{{book.volumeInfo.title}} {{book.volumeInfo.authors}} {{book.volumeInfo.description}}
+<img src="{{book.volumeInfo.imageLinks?.thumbnail}}">
+<button (click)="onAdd.emit(book)" *ngIf="!isInCart">Add to Cart</button>

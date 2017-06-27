@@ -1,1 +1,1 @@
-<app-book-detail>{{book$ | async | json}}</app-book-detail>
+<app-book-detail *ngIf="book$ | async" [book]="book$ | async" [isInCart]="isInCart$ | async"></app-book-detail>

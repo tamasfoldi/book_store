@@ -14,6 +14,7 @@ import { Book } from '../../models/book';
 export class BookDetailPageComponent implements OnInit, OnDestroy {
   componentDestroyed$ = new Subject();
   book$: Observable<Book>;
+  isInCart$: Observable<boolean>;
   constructor(private store: Store<fromRoot.State>, private route: ActivatedRoute) { }
 
   ngOnInit() {
@@ -26,6 +27,9 @@ export class BookDetailPageComponent implements OnInit, OnDestroy {
       });
 
     this.book$ = this.store.select(fromRoot.getSelectedBook);
+    this.isInCart$ = this.book$
+      .filter(book => !!book)
+      .combineLatest(this.store.select(fromRoot.getCartBookIds), (book, ids) => ids.includes(book.id));
   }
 
   ngOnDestroy() {

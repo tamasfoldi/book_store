@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Book } from '../../models/book';
 
 @Component({
   selector: 'app-book-detail',
   templateUrl: './book-detail.component.html',
   styleUrls: ['./book-detail.component.css']
 })
-export class BookDetailComponent implements OnInit {
+export class BookDetailComponent {
+  @Input('book')
+  book: Book;
 
-  constructor() { }
+  @Input('isInCart')
+  isInCart: boolean;
 
-  ngOnInit() {
-  }
-
+  @Output('onAdd')
+  onAdd = new EventEmitter<Book>();
 }

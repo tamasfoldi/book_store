@@ -15,10 +15,12 @@ export class SearchPageComponent implements OnInit {
   isLoading$: Observable<boolean>;
   query$: Observable<string>;
   books$: Observable<Book[]>;
+  inCartIds$: Observable<string[]>;
   constructor(private store: Store<fromRoot.State>) { }
 
   ngOnInit() {
     this.books$ = this.store.select(fromRoot.getSearchBooks);
+    this.inCartIds$ = this.store.select(fromRoot.getCartBookIds);
     this.query$ = this.store.select(fromRoot.getSearchQuery);
     this.isLoading$ = this.store.select(fromRoot.getSearchIsLoading);
   }

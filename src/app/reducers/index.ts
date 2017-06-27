@@ -39,7 +39,6 @@ export const getBookIds = createSelector(getBooksState, fromBooks.getIds);
 export const getSelectedBookId = createSelector(getBooksState, fromBooks.getSelectedId);
 export const getSelectedBook = createSelector(getBooks, getSelectedBookId, (books, selectedId) => books[selectedId]);
 
-
 export const getSearchState = (state: State) => state.search;
 export const getSearchIsLoading = createSelector(getSearchState, fromSearch.isLoading);
 export const getSearchBookIds = createSelector(getSearchState, fromSearch.ids);

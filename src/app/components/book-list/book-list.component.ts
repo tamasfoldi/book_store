@@ -10,9 +10,14 @@ export class BookListComponent {
   @Input('books')
   books: Book[];
 
-  @Input('isInCart')
-  isInCart: boolean;
+  @Input('inCartIds')
+  inCartIds: string[];
+
+  @Input('title')
+  title: string;
 
   @Output('onAdd')
   onAdd = new EventEmitter<Book>();
+
+
 }

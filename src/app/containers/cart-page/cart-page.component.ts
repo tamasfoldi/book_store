@@ -12,10 +12,13 @@ import { Book } from '../../models/book';
 export class CartPageComponent implements OnInit {
   isLoading$: Observable<boolean>;
   books$: Observable<Book[]>;
+  inCartIds$: Observable<string[]>;
+
   constructor(private store: Store<fromRoot.State>) { }
 
   ngOnInit() {
     this.books$ = this.store.select(fromRoot.getCartBooks);
+    this.inCartIds$ = this.store.select(fromRoot.getCartBookIds);
     this.isLoading$ = this.store.select(fromRoot.getCartIsLoading);
   }
 

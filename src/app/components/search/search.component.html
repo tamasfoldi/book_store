@@ -1,1 +1,3 @@
-<input [value]="query" (keyup)="onSearch.emit(search.value)" #search pInputText placeholder="Type for search">
+<md-input-container>
+  <input [value]="query" (keyup)="onSearch.emit(search.value)" #search mdInput placeholder="Type for search a book">
+</md-input-container>

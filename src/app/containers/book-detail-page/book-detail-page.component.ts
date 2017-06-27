@@ -4,6 +4,7 @@ import { Store } from '@ngrx/store';
 import { Observable, Subject } from 'rxjs/Rx';
 import * as fromRoot from '../../reducers';
 import * as books from '../../actions/books.actions';
+import * as cart from '../../actions/cart.actions';
 import { Book } from '../../models/book';
 
 @Component({
@@ -35,6 +36,10 @@ export class BookDetailPageComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.componentDestroyed$.next();
     this.componentDestroyed$.unsubscribe();
+  }
+
+  handleAdd(book: Book) {
+    this.store.dispatch(new cart.AddAction(book));
   }
 
 }

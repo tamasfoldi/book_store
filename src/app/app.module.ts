@@ -4,11 +4,11 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
+import { MaterialModule } from '@angular/material';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 import { DBModule } from '@ngrx/db';
-import { DataListModule, InputTextModule } from 'primeng/primeng';
 
 import { AppComponent } from './app.component';
 import { GoogleBooksService } from './services/google-books.service';
@@ -25,6 +25,9 @@ import { routes } from './routes';
 import { BookListComponent } from './components/book-list/book-list.component';
 import { SearchComponent } from './components/search/search.component';
 import { BookDetailComponent } from './components/book-detail/book-detail.component';
+import { AddToCartComponent } from './components/add-to-cart/add-to-cart.component';
+import { HeaderComponent } from './components/header/header.component';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +37,10 @@ import { BookDetailComponent } from './components/book-detail/book-detail.compon
     BookDetailPageComponent,
     BookListComponent,
     SearchComponent,
-    BookDetailComponent
+    BookDetailComponent,
+    AddToCartComponent,
+    HeaderComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
@@ -51,8 +57,7 @@ import { BookDetailComponent } from './components/book-detail/book-detail.compon
     StoreModule.provideStore(reducer),
     StoreDevtoolsModule.instrumentStore(),
 
-    DataListModule,
-    InputTextModule
+    MaterialModule
   ],
   providers: [
     GoogleBooksService,

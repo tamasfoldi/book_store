@@ -1,1 +1,1 @@
-<app-book-detail *ngIf="book$ | async" [book]="book$ | async" [isInCart]="isInCart$ | async"></app-book-detail>
+<app-book-detail [book]="book$ | async" [isInCart]="isInCart$ | async" (onAdd)="handleAdd($event)"></app-book-detail>

@@ -1,3 +1,20 @@
-{{book.volumeInfo.title}} {{book.volumeInfo.authors}} {{book.volumeInfo.description}}
-<img src="{{book.volumeInfo.imageLinks?.thumbnail}}">
-<button (click)="onAdd.emit(book)" *ngIf="!isInCart">Add to Cart</button>
+<md-card class="card">
+  <div *ngIf="!!book; else loading">
+    <md-card-title-group>
+      <md-card-title>{{ book.volumeInfo.title }}</md-card-title>
+      <md-card-subtitle>{{ book.volumeInfo.authors }}</md-card-subtitle>
+      <img md-card-sm-image [src]="book.volumeInfo.imageLinks?.thumbnail" />
+    </md-card-title-group>
+    <md-card-content>
+      <p>
+        {{book.volumeInfo.description}}
+      </p>
+    </md-card-content>
+    <md-card-actions>
+      <app-add-to-cart [isInCart]="isInCart" (click)="onAdd.emit(book)"></app-add-to-cart>
+    </md-card-actions>
+  </div>
+  <ng-template #loading>
+    <app-spinner></app-spinner>
+  </ng-template>
+</md-card>

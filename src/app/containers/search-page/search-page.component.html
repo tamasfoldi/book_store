@@ -1,2 +1,3 @@
 <app-search [query]="query$ | async" (onSearch)="search($event)"></app-search>
-<app-book-list [books]="books$ | async" [inCartIds]="inCartIds$ | async " (onAdd)="handleAdd($event)" title="Search Result"></app-book-list>
+<app-book-list [books]="books$ | async" [isLoading]="isLoading$ | async" [inCartIds]="inCartIds$ | async " (onAdd)="handleAdd($event)"
+  title="Search Result"></app-book-list>

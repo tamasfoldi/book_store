@@ -1,0 +1,4 @@
+<md-icon *ngIf="!isInCart; else incart" class="link">add_shopping_cart</md-icon>
+<ng-template #incart>
+  <md-icon>done</md-icon>
+</ng-template>

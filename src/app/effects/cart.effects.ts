@@ -26,6 +26,7 @@ export class CartEffects {
         .catch(error => of(new cart.LoadFailAction(error)))
     );
 
+  @Effect()
   onAdd$: Observable<Action> = this.actions$
     .ofType(cart.ADD)
     .map(toPayload)

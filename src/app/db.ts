@@ -4,7 +4,7 @@ export const schema: DBSchema = {
   version: 1,
   name: environment.schemaName,
   stores: {
-    [environment.cartDBName]: {
+    cart: {
       autoIncrement: true,
       primaryKey: 'id'
     }

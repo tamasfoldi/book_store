@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Rx';
 import * as books from '../../actions/books.actions';
+import * as cart from '../../actions/cart.actions';
 import * as fromRoot from '../../reducers';
 import { Book } from '../../models/book';
 
@@ -23,7 +24,11 @@ export class SearchPageComponent implements OnInit {
   }
 
   search(query: string) {
-    this.store.dispatch(new books.SearchAction('query'));
+    this.store.dispatch(new books.SearchAction(query));
+  }
+
+  handleAdd(book: Book) {
+    this.store.dispatch(new cart.AddAction(book));
   }
 
 }

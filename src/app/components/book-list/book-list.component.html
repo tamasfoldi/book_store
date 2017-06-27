@@ -1,14 +1,15 @@
 <md-card>
   <md-card-title>{{title}}</md-card-title>
   <md-card-content>
-    <md-list>
+    <md-list *ngIf="!isLoading; else loading">
       <md-list-item *ngFor="let book of books">
         <app-add-to-cart [isInCart]="inCartIds.includes(book.id)" (click)="onAdd.emit(book)"></app-add-to-cart>
         <h4 md-line [routerLink]="['/books/', book.id]" class="link">{{book.volumeInfo.title}}</h4>
         <p md-line> {{book.volumeInfo.authors}} </p>
       </md-list-item>
     </md-list>
-    <app-spinner *ngIf="isLoading">
-    </app-spinner>
+    <ng-template #loading>
+      <app-spinner> </app-spinner>
+    </ng-template>
   </md-card-content>
 </md-card>

@@ -16,6 +16,9 @@ export class BookListComponent {
   @Input('title')
   title: string;
 
+  @Input('isLoading')
+  isLoading: boolean;
+
   @Output('onAdd')
   onAdd = new EventEmitter<Book>();
 

@@ -2,8 +2,6 @@ import { TestBed, fakeAsync, inject } from '@angular/core/testing';
 import { CartEffects } from './cart.effects';
 import { Database } from '@ngrx/db';
 import { EffectsTestingModule, EffectsRunner } from '@ngrx/effects/testing';
-import { StoreModule } from '@ngrx/store';
-import { reducer } from '../reducers';
 import { SCHEMA_NAME, CART_DB_NAME } from '../services/tokens';
 import * as cart from '../actions/cart.actions';
 import * as testData from '../../test-datas';
@@ -16,7 +14,6 @@ describe('CartEffects', () => {
   beforeEach(() => TestBed.configureTestingModule({
     imports: [
       EffectsTestingModule,
-      StoreModule.provideStore(reducer)
     ],
     providers: [
       CartEffects,

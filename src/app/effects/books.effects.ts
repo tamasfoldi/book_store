@@ -24,7 +24,7 @@ export class BooksEffects {
       return this.gbService.search(query)
         .takeUntil(next$)
         .map(bks => new books.SearchSuccessAction(bks))
-        .catch(err => of(new books.SearchFailAction(err)))
+        .catch(err => of(new books.SearchFailAction(err)));
     });
 
   @Effect()

@@ -3,6 +3,7 @@ import { Http } from '@angular/http';
 import { Store } from '@ngrx/store';
 import { BOOKS_API_BASE, SCHEMA_NAME, CART_DB_NAME } from './tokens';
 import { Observable } from 'rxjs/Rx';
+import { of } from 'rxjs/observable/of';
 import { Book } from '../models/book';
 import { State, getBooks } from '../reducers';
 
@@ -23,8 +24,9 @@ export class GoogleBooksService {
   getBook(bookId: string): Observable<Book> {
     return this.store.select(getBooks)
       .map(books => books[bookId])
-      .switchMap(book => book ? Observable.of(book) : this.http.get(`${this.baseUrl}/${bookId}`)
-        .map(rsp => rsp.json()));
+      .switchMap(book => !!book ? of(book) :
+        this.http.get(`${this.baseUrl}/${bookId}`)
+          .map(rsp => rsp.json()));
   }
 
 }
